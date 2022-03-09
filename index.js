@@ -10,6 +10,7 @@ app.get('/rbx', function(request, response) {
 });
 app.post('/rbx', function(request, response) {
 	myJson = request.body
+	response.send(myJson);
 });
 app.listen(process.env.PORT,function(){
 	console.log("App listening on port process.env.PORT");
