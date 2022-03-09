@@ -7,7 +7,7 @@ app.get('/rbx', function(request, response) {
 });
 app.post('/rbx', function(request, response) {
 	console.log(response.body);
-	res.send('PUT request to homepage');
+	response.send('PUT request to homepage');
 });
 app.listen(process.env.PORT,function(){
 	console.log("App listening on port process.env.PORT");
