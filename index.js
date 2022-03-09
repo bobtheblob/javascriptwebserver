@@ -1,13 +1,14 @@
 const express = require('express');
 const app = express();
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 var myJson = {
     key: "myvalue"
 };
 var myJson2 = {
     key: "myvalue"
 };
-app.use(express.json()) // for parsing application/json
-app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 app.get('/rbx', function(request, response) {
 	response.send(myJson);
 });
@@ -18,11 +19,7 @@ app.post('/rbxplrs', function(request, response) {
 	myJson2 = request.body;
 });
 app.post('/rbx', function(request, response) {
-	if (request.body.Players ~= null ) {
-		myJson2 = request.body;
-		return
-	}
-	myJson = request.body
+	myJson = request.body;
 });
 app.listen(process.env.PORT,function(){
 	console.log("App listening on port process.env.PORT");
