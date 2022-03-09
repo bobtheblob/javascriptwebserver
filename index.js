@@ -1,13 +1,15 @@
 const express = require('express');
-const app = express()
+const app = express();
+var myJson = {
+    key: "myvalue"
+};
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.get('/rbx', function(request, response) {
-	response.send('Hello World!');
+	response.send(myJson);
 });
 app.post('/rbx', function(request, response) {
-	console.log(request.body.Hello);
-	response.send(request.body.Hello);
+	myJson = request.body
 });
 app.listen(process.env.PORT,function(){
 	console.log("App listening on port process.env.PORT");
