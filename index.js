@@ -1,11 +1,5 @@
 const app = require("express")();
 
-const PORT = process.env.PORT || 3000;
-
-app.get("/Hey", (req, res) => {
-  res.send("Hello world");
-});
-
-app.listen(PORT, () => {
-	console.log("App up at port ${PORT}");
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
