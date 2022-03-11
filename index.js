@@ -9,6 +9,9 @@ var myJson2 = {
 var myJson3 = {
     key: "myvalue"
 };
+var myJson4 = {
+    key: "myvalue"
+};
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.get('/rbx', function(request, response) {
@@ -19,6 +22,13 @@ app.get('/rbxplrs', function(request, response) {
 });
 app.get('/chat', function(request, response) {
 	response.send(myJson3);
+});
+app.get('/event', function(request, response) {
+	response.send(myJson4);
+});
+app.post('/event', function(request, response) {
+	myJson4 = request.body;
+	response.send(myJson4);
 });
 app.post('/rbxplrs', function(request, response) {
 	myJson2 = request.body;
